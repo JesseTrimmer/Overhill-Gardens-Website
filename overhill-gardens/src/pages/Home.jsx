@@ -75,7 +75,7 @@ export default function Home({ setActivePage }) {
         {/* Right image */}
         <div style={{ position: 'relative', overflow: 'hidden', minHeight: '500px' }}>
           <img
-            src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=80"
+            src="/garden.jpg"
             alt="Native garden in bloom"
             style={{
               width: '100%', height: '100%',

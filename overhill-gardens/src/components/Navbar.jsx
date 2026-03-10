@@ -50,11 +50,10 @@ export default function Navbar({ activePage, setActivePage }) {
           }}
         >
           <img
-            src="https://overhillgardens.com/images/overhilllogo.gif"
-            alt="Overhill Gardens"
-            style={{ height: '52px', width: 'auto' }}
-            onError={e => { e.target.style.display = 'none' }}
-          />
+  src="/logo.jpg"
+  alt="Overhill Gardens"
+  style={{ height: '52px', width: 'auto' }}
+/>
           <span style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: '1.25rem', fontWeight: 600,
