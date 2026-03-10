@@ -1,3 +1,5 @@
+import gardenPhoto from '../assets/garden.jpg'
+
 export default function Home({ setActivePage }) {
   const navigate = (page) => {
     setActivePage(page)
@@ -75,7 +77,7 @@ export default function Home({ setActivePage }) {
         {/* Right image */}
         <div style={{ position: 'relative', overflow: 'hidden', minHeight: '500px' }}>
           <img
-            src="/Overhill-Gardens-Website/garden.jpg"
+            src={gardenPhoto}
             alt="Native garden in bloom"
             style={{
               width: '100%', height: '100%',

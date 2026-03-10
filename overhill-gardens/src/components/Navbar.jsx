@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import logo from '../assets/logo.jpg'
 
 export default function Navbar({ activePage, setActivePage }) {
   const [scrolled, setScrolled] = useState(false)
@@ -50,7 +51,7 @@ export default function Navbar({ activePage, setActivePage }) {
           }}
         >
           <img
-  src="/Overhill-Gardens-Website/logo.jpg"
+  src={logo}
   alt="Overhill Gardens"
   style={{ height: '52px', width: 'auto' }}
 />
