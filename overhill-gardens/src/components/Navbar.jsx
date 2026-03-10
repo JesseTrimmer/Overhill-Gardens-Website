@@ -50,7 +50,7 @@ export default function Navbar({ activePage, setActivePage }) {
           }}
         >
           <img
-  src="/logo.jpg"
+  src="/Overhill-Gardens-Website/logo.jpg"
   alt="Overhill Gardens"
   style={{ height: '52px', width: 'auto' }}
 />

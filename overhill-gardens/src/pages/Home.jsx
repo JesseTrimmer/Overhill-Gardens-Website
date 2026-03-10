@@ -75,7 +75,7 @@ export default function Home({ setActivePage }) {
         {/* Right image */}
         <div style={{ position: 'relative', overflow: 'hidden', minHeight: '500px' }}>
           <img
-            src="/garden.jpg"
+            src="/Overhill-Gardens-Website/garden.jpg"
             alt="Native garden in bloom"
             style={{
               width: '100%', height: '100%',
