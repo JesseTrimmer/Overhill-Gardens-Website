@@ -1,4 +1,4 @@
-import gardenPhoto from '../assets/garden.jpg'
+import gardenPhoto from '../assets/homegarden.jpeg'
 
 export default function Home({ setActivePage }) {
   const navigate = (page) => {
