@@ -53,7 +53,7 @@ export default function Navbar({ activePage, setActivePage }) {
           <img
   src={logo}
   alt="Overhill Gardens"
-  style={{ height: '52px', width: 'auto' }}
+  style={{ height: '55px', width: 'auto' }}
 />
           <span style={{
             fontFamily: "'Cormorant Garamond', serif",
