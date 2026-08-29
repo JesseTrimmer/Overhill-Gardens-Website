@@ -93,7 +93,8 @@ button {
   top: 90px;
 }
 
-.sidebar-nav li button {
+.sidebar-nav li a {
+  display: block;
   font-family: 'Jost', sans-serif;
   font-size: 0.82rem;
   font-weight: 400;
@@ -103,20 +104,54 @@ button {
   width: 100%;
   text-align: left;
   transition: color 0.2s, border-color 0.2s;
-  background: none;
-  cursor: pointer;
   letter-spacing: 0.01em;
 }
 
-.sidebar-nav li button:hover {
+.sidebar-nav li a:hover {
   color: var(--moss);
   border-left-color: var(--sage);
 }
 
-.sidebar-nav li button.active {
+.sidebar-nav li a.active {
   color: var(--moss);
   font-weight: 500;
   border-left-color: var(--moss);
+}
+
+/* ── Main nav links ── */
+.nav-link {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 0.5rem 1.1rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  display: inline-block;
+}
+
+.nav-link:hover {
+  color: var(--moss);
+}
+
+.nav-link.active {
+  color: var(--moss);
+  font-weight: 500;
+  border-bottom-color: var(--moss);
+}
+
+.nav-link-mobile {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--charcoal);
+  animation: fadeUp 0.4s both;
+}
+
+.nav-link-mobile.active {
+  color: var(--moss);
 }
 
 /* ── Section eyebrow + title ── */
@@ -260,12 +295,12 @@ button {
     gap: 0.25rem;
     position: static;
   }
-  .sidebar-nav li button {
+   .sidebar-nav li a {
     border-left: none;
     border-bottom: 2px solid transparent;
     padding: 0.4rem 0.75rem;
   }
-  .sidebar-nav li button.active {
+  .sidebar-nav li a.active {
     border-left: none;
     border-bottom-color: var(--moss);
   }
