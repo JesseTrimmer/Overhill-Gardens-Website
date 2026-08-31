@@ -100,31 +100,6 @@ export default function BrowsePlants() {
 
       <div className="divider" />
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <a href="https://overhillgardens.com" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.2rem 1.5rem', background: 'var(--parchment)', border: '1px solid var(--border)', borderLeft: '3px solid var(--moss)', textDecoration: 'none', transition: 'background 0.2s' }}
-          onMouseEnter={e => e.currentTarget.style.background = 'var(--parchment-dark)'}
-          onMouseLeave={e => e.currentTarget.style.background = 'var(--parchment)'}
-        >
-          <span style={{ fontSize: '1.4rem' }}>📋</span>
-          <div>
-            <div style={{ fontWeight: 500, fontSize: '0.92rem', color: 'var(--charcoal)' }}>2025 Native Plants retail price list</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>by <em>common name</em> (.pdf)</div>
-          </div>
-        </a>
-        <a href="https://overhillgardens.com" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1.2rem 1.5rem', background: 'var(--parchment)', border: '1px solid var(--border)', borderLeft: '3px solid var(--moss)', textDecoration: 'none', transition: 'background 0.2s' }}
-          onMouseEnter={e => e.currentTarget.style.background = 'var(--parchment-dark)'}
-          onMouseLeave={e => e.currentTarget.style.background = 'var(--parchment)'}
-        >
-          <span style={{ fontSize: '1.4rem' }}>📋</span>
-          <div>
-            <div style={{ fontWeight: 500, fontSize: '0.92rem', color: 'var(--charcoal)' }}>2025 Native Plants retail price list</div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>by <em>scientific name</em> (.pdf)</div>
-          </div>
-        </a>
-      </div>
-
-      <div className="divider" />
-
       <h3 style={{ fontFamily: "'Jost', sans-serif", fontSize: '0.72rem', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '1.2rem' }}>
         Staff Tools
       </h3>
