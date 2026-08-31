@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import logo from '../assets/logo.png'
 
 const nurseryLinks = [
   { label: 'Browse Our Plants',  path: '/nursery/browse-plants' },
@@ -28,12 +29,17 @@ export default function Footer() {
       }}>
         {/* Brand */}
         <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+          <img src={logo} alt="" style={{ height: '40px', width: 'auto' }} />
           <div style={{
-            fontFamily: "'Cormorant Garamond', serif", fontSize: '1.5rem', fontWeight: 600,
-            color: 'var(--cream)', marginBottom: '1rem', letterSpacing: '0.01em',
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: '1.5rem', fontWeight: 600,
+            color: 'var(--cream)',
+            letterSpacing: '0.01em',
           }}>
             Overhill <span style={{ color: 'var(--sage)', fontStyle: 'italic', fontWeight: 400 }}>Gardens</span>
           </div>
+        </div> 
           <p style={{ fontSize: '0.85rem', lineHeight: 1.8, maxWidth: '34ch' }}>
             East Tennessee Native Plant Nursery & Garden Center.<br />
             1404 Citico Road · Vonore, TN 37885
