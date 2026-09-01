@@ -26,8 +26,6 @@ export default function BrowsePlants() {
   const [bloomTime, setBloomTime] = useState('All')
   const [heightBucket, setHeightBucket] = useState('All Heights')
   const [pollinatorOnly, setPollinatorOnly] = useState(false)
-  const [inStockOnly, setInStockOnly] = useState(false)
-
   const categories = useMemo(() => ['All', ...new Set(plantsData.map(p => p.category))].sort((a,b) => a==='All'?-1:a.localeCompare(b)), [])
   const sunOptions = useMemo(() => ['All', ...new Set(plantsData.map(p => p.sunNeeds).filter(Boolean))], [])
   const moistureOptions = useMemo(() => ['All', ...new Set(plantsData.map(p => p.moisture).filter(Boolean))], [])
@@ -46,10 +44,9 @@ export default function BrowsePlants() {
       if (bloomTime !== 'All' && !p.bloomTime?.includes(bloomTime)) return false
       if (bucket && !bucket.test(p.heightFt)) return false
       if (pollinatorOnly && !p.pollinatorFriendly) return false
-      if (inStockOnly && !p.inStock) return false
       return true
     })
-  }, [search, category, sun, moisture, bloomColor, bloomTime, heightBucket, pollinatorOnly, inStockOnly])
+  }, [search, category, sun, moisture, bloomColor, bloomTime, heightBucket, pollinatorOnly])
 
   return (
     <div>
@@ -90,10 +87,6 @@ export default function BrowsePlants() {
         <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
           <input type="checkbox" checked={pollinatorOnly} onChange={e => setPollinatorOnly(e.target.checked)} />
           Pollinator favorite
-        </label>
-        <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-          <input type="checkbox" checked={inStockOnly} onChange={e => setInStockOnly(e.target.checked)} />
-          In stock only
         </label>
       </div>
 
