@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "event-1788311229527",
+    "title": "Sample Event",
+    "date": "2026-09-09",
+    "endDate": null,
+    "time": "10am",
+    "category": "Workshop",
+    "location": "",
+    "description": "Test event",
+    "registrationEnabled": true
+  }
+]
