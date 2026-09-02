@@ -2,8 +2,8 @@ import { useState, useMemo } from 'react'
 import eventsData from '../../data/events.json'
 import StaffGate from '../../components/staff/StaffGate'
 import EventManager from '../../components/staff/EventManager'
-import { getMonthGrid, toISODate, eventsOnDate, formatDisplayDate, MONTH_NAMES, WEEKDAY_LABELS } from '../../lib/dateUtils'
 import EventRegistrationForm from '../../components/EventRegistrationForm'
+import { getMonthGrid, toISODate, eventsOnDate, formatDisplayDate, MONTH_NAMES, WEEKDAY_LABELS } from '../../lib/dateUtils'
 
 const CATEGORY_COLORS = {
   'Open House': 'var(--moss)',
@@ -52,7 +52,6 @@ export default function CalendarEvents() {
         what's happening, or browse upcoming events below.
       </p>
 
-      {/* Calendar */}
       <div style={{ border: '1px solid var(--border)', marginBottom: '2rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--moss)', padding: '0.85rem 1.25rem' }}>
           <button onClick={goPrevMonth} style={{ color: 'var(--cream)', fontSize: '1rem' }}>←</button>
@@ -100,7 +99,6 @@ export default function CalendarEvents() {
         </div>
       </div>
 
-      {/* Events list */}
       <div style={{ marginBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '1rem' }}>
           <h3 style={{ fontFamily: "'Jost', sans-serif", fontSize: '0.72rem', fontWeight: 500, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
@@ -133,6 +131,7 @@ export default function CalendarEvents() {
                 {ev.location ? ` · ${ev.location}` : ' · Overhill Gardens Nursery'}
               </div>
               {ev.description && <p style={{ fontSize: '0.9rem', color: 'var(--text)', lineHeight: 1.7 }}>{ev.description}</p>}
+              <EventRegistrationForm event={ev} />
             </div>
           ))}
         </div>
