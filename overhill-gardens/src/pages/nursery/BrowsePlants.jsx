@@ -97,8 +97,9 @@ export default function BrowsePlants() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.25rem', marginBottom: '2.5rem' }}>
         {filtered.map(p => (
           <div key={p.id} style={{ background: 'var(--white)', border: '1px solid var(--border)', padding: '1.25rem', borderLeft: p.inStock ? '3px solid var(--moss)' : '3px solid var(--border)' }}>
-            <div style={{ fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--clay)', marginBottom: '0.4rem' }}>{p.category}</div>
+             <div style={{ fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--clay)', marginBottom: '0.4rem' }}>{p.category}</div>
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15rem', color: 'var(--charcoal)' }}>{p.commonName}</div>
+            <div style={{ fontSize: '0.8rem', fontStyle: 'italic', color: 'var(--text-muted)', marginBottom: '0.6rem' }}>{p.scientificName}</div>
 
             <div style={{
               width: '100%', aspectRatio: '16 / 9', overflow: 'hidden',
@@ -114,8 +115,7 @@ export default function BrowsePlants() {
               )}
             </div>
 
-            <div style={{ fontSize: '0.8rem', fontStyle: 'italic', color: 'var(--text-muted)', marginBottom: '0.6rem' }}>{p.scientificName}</div>
-
+           
             {(p.sunNeeds || p.moisture || p.pollinatorFriendly) && (
               <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)', marginBottom: '0.6rem' }}>
                 {[p.sunNeeds, p.moisture, p.pollinatorFriendly ? 'Pollinator favorite' : null].filter(Boolean).join(' · ')}
