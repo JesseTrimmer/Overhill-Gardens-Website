@@ -14,7 +14,8 @@
     "minPrice": 58,
     "maxPrice": 58,
     "totalQty": 28,
-    "inStock": true
+    "inStock": true,
+    "photoUrl": "/Overhill-Gardens-Website/plant-photos/plant-1.jpg"
   },
   {
     "id": "plant-2",
