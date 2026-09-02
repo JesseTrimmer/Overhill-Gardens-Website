@@ -6,7 +6,7 @@ import { formatDisplayDate } from '../../lib/dateUtils'
 
 const CATEGORIES = ['Open House', 'Workshop', 'Sale', 'Class', 'Other']
 
-const emptyForm = { id: null, title: '', date: '', endDate: '', time: '', category: 'Open House', location: '', description: '' }
+const emptyForm = { id: null, title: '', date: '', endDate: '', time: '', category: 'Open House', location: '', description: '', registrationEnabled: true }
 
 export default function EventManager({ currentEvents, onUpdated }) {
   const { token } = useStaffAuth()
@@ -32,6 +32,7 @@ export default function EventManager({ currentEvents, onUpdated }) {
       category: form.category,
       location: form.location.trim(),
       description: form.description.trim(),
+      registrationEnabled: form.registrationEnabled,
     }
 
     setEvents(prev => {
@@ -41,7 +42,7 @@ export default function EventManager({ currentEvents, onUpdated }) {
     setForm(emptyForm)
   }
 
-  const handleEdit = (ev) => setForm({ ...emptyForm, ...ev, endDate: ev.endDate || '' })
+  const handleEdit = (ev) => setForm({ ...emptyForm, ...ev, endDate: ev.endDate || '', registrationEnabled: ev.registrationEnabled !== false })
   const handleDelete = (id) => setEvents(prev => prev.filter(ev => ev.id !== id))
   const handleCancelEdit = () => setForm(emptyForm)
 
@@ -112,12 +113,18 @@ export default function EventManager({ currentEvents, onUpdated }) {
 
         <div>
           <label style={labelStyle}>Location</label>
-<input style={inputStyle} placeholder='Leave blank for "Overhill Gardens Nursery"' value={form.location} onChange={e => handleChange('location', e.target.value)} />        </div>
+          <input style={inputStyle} placeholder='Leave blank for "Overhill Gardens Nursery"' value={form.location} onChange={e => handleChange('location', e.target.value)} />
+        </div>
 
         <div>
           <label style={labelStyle}>Description</label>
           <textarea style={{ ...inputStyle, resize: 'vertical' }} rows={4} value={form.description} onChange={e => handleChange('description', e.target.value)} />
         </div>
+
+        <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text)' }}>
+          <input type="checkbox" checked={form.registrationEnabled} onChange={e => handleChange('registrationEnabled', e.target.checked)} />
+          Allow online registration for this event
+        </label>
 
         <div style={{ display: 'flex', gap: '0.75rem' }}>
           <button type="submit" className="btn-primary">{form.id ? 'Save Changes' : 'Add Event'}</button>

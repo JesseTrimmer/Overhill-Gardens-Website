@@ -20,6 +20,7 @@ import HardscapeGallery from './pages/landscaping/HardscapeGallery'
 import CommercialPortfolio from './pages/landscaping/CommercialPortfolio'
 import RestorationEcology from './pages/landscaping/RestorationEcology'
 import StartProject from './pages/landscaping/StartProject'
+import ThankYou from './pages/ThankYou'
 
 export default function App() {
   return (
@@ -51,7 +52,7 @@ export default function App() {
           </Route>
 
           <Route path="/contact" element={<Contact />} />
-
+          <Route path="/thank-you" element={<ThankYou />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

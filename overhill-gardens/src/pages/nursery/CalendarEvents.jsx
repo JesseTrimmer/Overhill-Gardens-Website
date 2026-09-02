@@ -3,6 +3,7 @@ import eventsData from '../../data/events.json'
 import StaffGate from '../../components/staff/StaffGate'
 import EventManager from '../../components/staff/EventManager'
 import { getMonthGrid, toISODate, eventsOnDate, formatDisplayDate, MONTH_NAMES, WEEKDAY_LABELS } from '../../lib/dateUtils'
+import EventRegistrationForm from '../../components/EventRegistrationForm'
 
 const CATEGORY_COLORS = {
   'Open House': 'var(--moss)',
