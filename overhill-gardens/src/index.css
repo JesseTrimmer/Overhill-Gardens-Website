@@ -28,6 +28,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -77,11 +78,13 @@ button {
 .inner-content {
   padding-right: 3rem;
   border-right: 1px solid var(--border);
+  min-width: 0;
 }
 
 .inner-sidebar {
   padding-left: 2.5rem;
   padding-top: 0.25rem;
+  min-width: 0;
 }
 
 .sidebar-nav {
@@ -91,6 +94,7 @@ button {
   gap: 0.25rem;
   position: sticky;
   top: 90px;
+  min-width: 0;
 }
 
 .sidebar-nav li a {
@@ -114,6 +118,32 @@ button {
   color: var(--white);
   background: var(--moss);
   font-weight: 500;
+}
+
+/* ── Main site nav (Home / Native Plant Nursery / Landscaping Services / Contact Us) ── */
+.nav-link {
+  position: relative;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: 0.5rem 1.1rem;
+  display: inline-block;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 1.1rem;
+  right: 1.1rem;
+  bottom: 0.15rem;
+  height: 2px;
+  background: var(--moss);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
 }
 
 .nav-link:hover {
@@ -283,16 +313,20 @@ button {
     border-bottom: 1px solid var(--border);
     padding-bottom: 2rem;
   }
-    .inner-sidebar {
+  .inner-sidebar {
     order: 1;
     padding: 0;
     margin-bottom: 1.5rem;
+    width: 100%;
+    overflow: hidden;
   }
   .sidebar-nav {
     position: static;
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
     gap: 0.5rem;
     padding-bottom: 0.5rem;
     -webkit-overflow-scrolling: touch;
@@ -307,9 +341,9 @@ button {
   .sidebar-nav li a {
     white-space: nowrap;
     border-radius: 999px;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.9rem;
     background: var(--parchment);
-    font-size: 0.78rem;
+    font-size: 0.74rem;
   }
   .sidebar-nav li a.active {
     background: var(--moss);
