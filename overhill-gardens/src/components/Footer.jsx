@@ -28,7 +28,7 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-          <img src={logo} alt="" style={{ height: '40px', width: 'auto' }} />
+          <img src={logo} alt="" style={{ height: '56px', width: 'auto' }} />
           <div style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: '1.5rem', fontWeight: 600,

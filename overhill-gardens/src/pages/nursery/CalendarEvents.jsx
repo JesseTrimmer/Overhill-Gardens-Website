@@ -119,8 +119,7 @@ export default function CalendarEvents() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', background: 'var(--border)' }}>
           {displayedEvents.map(ev => (
-            <div key={ev.id} style={{ background: 'var(--white)', padding: '1.25rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem' }}>
+<div key={ev.id} className="lift-card" style={{ background: 'var(--white)', padding: '1.25rem' }}>              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.4rem' }}>
                 <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: CATEGORY_COLORS[ev.category] || 'var(--moss)', display: 'inline-block' }} />
                 <span style={{ fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--clay)' }}>{ev.category}</span>
               </div>

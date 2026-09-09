@@ -353,3 +353,13 @@ button {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ── Card & button lift on hover ── */
+.lift-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lift-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(42, 42, 40, 0.12);
+}
