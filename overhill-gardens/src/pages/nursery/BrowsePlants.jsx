@@ -3,6 +3,7 @@ import plantsData from '../../data/plants.json'
 import StaffGate from '../../components/staff/StaffGate'
 import InventoryUploader from '../../components/staff/InventoryUploader'
 import PlantPhotoUploader from '../../components/staff/PlantPhotoUploader'
+import Lightbox from '../../components/Lightbox'
 
 const selectStyle = {
   padding: '0.6rem 0.85rem', background: 'var(--white)', border: '1px solid var(--border)',
@@ -26,6 +27,8 @@ export default function BrowsePlants() {
   const [bloomTime, setBloomTime] = useState('All')
   const [heightBucket, setHeightBucket] = useState('All Heights')
   const [pollinatorOnly, setPollinatorOnly] = useState(false)
+  const [lightboxPlant, setLightboxPlant] = useState(null)
+
   const categories = useMemo(() => ['All', ...new Set(plantsData.map(p => p.category))].sort((a,b) => a==='All'?-1:a.localeCompare(b)), [])
   const sunOptions = useMemo(() => ['All', ...new Set(plantsData.map(p => p.sunNeeds).filter(Boolean))], [])
   const moistureOptions = useMemo(() => ['All', ...new Set(plantsData.map(p => p.moisture).filter(Boolean))], [])
@@ -97,15 +100,21 @@ export default function BrowsePlants() {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.25rem', marginBottom: '2.5rem' }}>
         {filtered.map(p => (
           <div key={p.id} style={{ background: 'var(--white)', border: '1px solid var(--border)', padding: '1.25rem', borderLeft: p.inStock ? '3px solid var(--moss)' : '3px solid var(--border)' }}>
-             <div style={{ fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--clay)', marginBottom: '0.4rem' }}>{p.category}</div>
+            <div style={{ fontSize: '0.68rem', letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--clay)', marginBottom: '0.4rem' }}>{p.category}</div>
             <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '1.15rem', color: 'var(--charcoal)' }}>{p.commonName}</div>
             <div style={{ fontSize: '0.8rem', fontStyle: 'italic', color: 'var(--text-muted)', marginBottom: '0.6rem' }}>{p.scientificName}</div>
 
-            <div style={{
-              width: '100%', aspectRatio: '16 / 9', overflow: 'hidden',
-              background: p.photoUrl ? 'transparent' : 'var(--parchment)',
-              margin: '0.6rem 0', border: '1px solid var(--border)',
-            }}>
+            <div
+              onClick={() => p.photoUrl && setLightboxPlant(p)}
+              style={{
+                width: '100%', aspectRatio: '16 / 9', overflow: 'hidden',
+                background: p.photoUrl ? 'transparent' : 'var(--parchment)',
+                margin: '0.6rem 0', border: '1px solid var(--border)',
+                cursor: p.photoUrl ? 'zoom-in' : 'default',
+                position: 'relative',
+              }}
+              className={p.photoUrl ? 'plant-photo-hover' : ''}
+            >
               {p.photoUrl ? (
                 <img src={p.photoUrl} alt={p.commonName} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               ) : (
@@ -115,7 +124,6 @@ export default function BrowsePlants() {
               )}
             </div>
 
-           
             {(p.sunNeeds || p.moisture || p.pollinatorFriendly) && (
               <div style={{ fontSize: '0.74rem', color: 'var(--text-muted)', marginBottom: '0.6rem' }}>
                 {[p.sunNeeds, p.moisture, p.pollinatorFriendly ? 'Pollinator favorite' : null].filter(Boolean).join(' · ')}
@@ -167,6 +175,24 @@ export default function BrowsePlants() {
         <InventoryUploader currentPlants={plantsData} />
         <PlantPhotoUploader currentPlants={plantsData} />
       </StaffGate>
+
+      {lightboxPlant && (
+        <Lightbox
+          src={lightboxPlant.photoUrl}
+          alt={lightboxPlant.commonName}
+          caption={`${lightboxPlant.commonName} — ${lightboxPlant.scientificName}`}
+          onClose={() => setLightboxPlant(null)}
+        />
+      )}
+
+      <style>{`
+        .plant-photo-hover img {
+          transition: transform 0.3s ease;
+        }
+        .plant-photo-hover:hover img {
+          transform: scale(1.05);
+        }
+      `}</style>
     </div>
   )
 }
