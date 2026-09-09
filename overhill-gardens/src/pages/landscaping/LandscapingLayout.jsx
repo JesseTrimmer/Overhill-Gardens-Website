@@ -29,7 +29,7 @@ export default function LandscapingLayout() {
           <ul className="sidebar-nav">
             {LANDSCAPE_PAGES.map(p => (
               <li key={p.path}>
-                <NavLink to={p.path}>– {p.label}</NavLink>
+                <NavLink to={p.path}>{p.label}</NavLink>
               </li>
             ))}
           </ul>

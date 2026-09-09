@@ -88,7 +88,7 @@ button {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 0.25rem;
   position: sticky;
   top: 90px;
 }
@@ -99,49 +99,21 @@ button {
   font-size: 0.82rem;
   font-weight: 400;
   color: var(--text-muted);
-  padding: 0.55rem 0 0.55rem 1rem;
-  border-left: 2px solid transparent;
-  width: 100%;
-  text-align: left;
-  transition: color 0.2s, border-color 0.2s;
-  letter-spacing: 0.01em;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
 }
 
 .sidebar-nav li a:hover {
   color: var(--moss);
-  border-left-color: var(--sage);
+  background: var(--parchment);
+  transform: translateX(2px);
 }
 
 .sidebar-nav li a.active {
-  color: var(--moss);
-  font-weight: 500;
-  border-left-color: var(--moss);
-}
-
-/* ── Main nav links (desktop) ── */
-.nav-link {
-  position: relative;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text);
-  padding: 0.5rem 1.1rem;
-  display: inline-block;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 1.1rem;
-  right: 1.1rem;
-  bottom: 0.15rem;
-  height: 2px;
+  color: var(--white);
   background: var(--moss);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
+  font-weight: 500;
 }
 
 .nav-link:hover {
@@ -311,25 +283,37 @@ button {
     border-bottom: 1px solid var(--border);
     padding-bottom: 2rem;
   }
-  .inner-sidebar {
+    .inner-sidebar {
     order: 1;
-    padding-left: 0;
-    padding-top: 1.5rem;
+    padding: 0;
+    margin-bottom: 1.5rem;
   }
   .sidebar-nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.25rem;
     position: static;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-   .sidebar-nav li a {
-    border-left: none;
-    border-bottom: 2px solid transparent;
-    padding: 0.4rem 0.75rem;
+  .sidebar-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .sidebar-nav li {
+    flex-shrink: 0;
+  }
+  .sidebar-nav li a {
+    white-space: nowrap;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    background: var(--parchment);
+    font-size: 0.78rem;
   }
   .sidebar-nav li a.active {
-    border-left: none;
-    border-bottom-color: var(--moss);
+    background: var(--moss);
+    color: var(--white);
   }
   .photo-grid {
     grid-template-columns: repeat(2, 1fr);
