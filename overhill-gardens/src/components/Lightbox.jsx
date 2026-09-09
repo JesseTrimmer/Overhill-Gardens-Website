@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 
 export default function Lightbox({ src, alt, caption, onClose }) {
   useEffect(() => {
@@ -11,11 +12,11 @@ export default function Lightbox({ src, alt, caption, onClose }) {
     }
   }, [onClose])
 
-  return (
+  return createPortal(
     <div
       onClick={onClose}
       style={{
-        position: 'fixed', inset: 0, zIndex: 500,
+        position: 'fixed', inset: 0, zIndex: 9999,
         background: 'rgba(20,20,18,0.92)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         padding: '2rem',
@@ -60,6 +61,7 @@ export default function Lightbox({ src, alt, caption, onClose }) {
           to { opacity: 1; }
         }
       `}</style>
-    </div>
+    </div>,
+    document.body
   )
 }
