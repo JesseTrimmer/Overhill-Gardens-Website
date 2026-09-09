@@ -16,8 +16,6 @@ import GardenerResources from './pages/nursery/GardenerResources'
 import LandscapingLayout from './pages/landscaping/LandscapingLayout'
 import DesignApproach from './pages/landscaping/DesignApproach'
 import LandscapeGallery from './pages/landscaping/LandscapeGallery'
-import HardscapeGallery from './pages/landscaping/HardscapeGallery'
-import CommercialPortfolio from './pages/landscaping/CommercialPortfolio'
 import RestorationEcology from './pages/landscaping/RestorationEcology'
 import StartProject from './pages/landscaping/StartProject'
 import ThankYou from './pages/ThankYou'
@@ -45,8 +43,6 @@ export default function App() {
             <Route index element={<Navigate to="design-approach" replace />} />
             <Route path="design-approach" element={<DesignApproach />} />
             <Route path="gallery" element={<LandscapeGallery />} />
-            <Route path="hardscape" element={<HardscapeGallery />} />
-            <Route path="commercial" element={<CommercialPortfolio />} />
             <Route path="restoration-ecology" element={<RestorationEcology />} />
             <Route path="start-project" element={<StartProject />} />
           </Route>

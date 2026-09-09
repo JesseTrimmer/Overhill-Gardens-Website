@@ -2,9 +2,7 @@ import { Outlet, NavLink } from 'react-router-dom'
 
 const LANDSCAPE_PAGES = [
   { path: 'design-approach',     label: 'Design Approach' },
-  { path: 'gallery',             label: 'Landscape Gallery' },
-  { path: 'hardscape',           label: 'Hardscape Gallery' },
-  { path: 'commercial',          label: 'Commercial Portfolio' },
+  { path: 'gallery',             label: 'Project Gallery' },
   { path: 'restoration-ecology', label: 'Restoration Ecology' },
   { path: 'start-project',       label: 'Start Your Project' },
 ]

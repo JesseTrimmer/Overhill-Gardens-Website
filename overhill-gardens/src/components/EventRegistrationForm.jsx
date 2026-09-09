@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { formatDisplayDate } from '../lib/dateUtils'
 
-const FORM_EMAIL = 'avi@overhillgardens.com' // change if registrations should go to a different inbox
+const FORM_EMAIL = 'office@overhillgardens.com' // change if registrations should go to a different inbox
 
 export default function EventRegistrationForm({ event }) {
   const [open, setOpen] = useState(false)

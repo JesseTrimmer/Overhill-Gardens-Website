@@ -280,12 +280,14 @@ button {
     grid-template-columns: 1fr;
   }
   .inner-content {
+    order: 2;
     padding-right: 0;
     border-right: none;
     border-bottom: 1px solid var(--border);
     padding-bottom: 2rem;
   }
   .inner-sidebar {
+    order: 1;
     padding-left: 0;
     padding-top: 1.5rem;
   }

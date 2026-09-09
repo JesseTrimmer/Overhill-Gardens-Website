@@ -13,8 +13,6 @@ const nurseryLinks = [
 const landscapingLinks = [
   { label: 'Design Approach',      path: '/landscaping/design-approach' },
   { label: 'Landscape Gallery',    path: '/landscaping/gallery' },
-  { label: 'Hardscape Gallery',    path: '/landscaping/hardscape' },
-  { label: 'Commercial Portfolio', path: '/landscaping/commercial' },
   { label: 'Restoration Ecology',  path: '/landscaping/restoration-ecology' },
   { label: 'Start Your Project',   path: '/landscaping/start-project' },
 ]

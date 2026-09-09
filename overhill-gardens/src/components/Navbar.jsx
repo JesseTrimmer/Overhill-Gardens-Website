@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import logo from '../assets/logo.png'
+import logo from '../assets/LogoOverhill.png'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -35,24 +35,34 @@ export default function Navbar() {
         transition: 'all 0.3s',
       }}>
 
-        {/* LOGO */}
         <Link
           to="/"
           onClick={closeMobile}
-          style={{ display: 'flex', alignItems: 'center', gap: '10px' }}
+          style={{ display: 'flex', alignItems: 'center', gap: '10px', transition: 'transform 0.25s' }}
+          onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.03)'}
+          onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
         >
-          <img src={logo} alt="Overhill Gardens" style={{ height: '65px', width: 'auto' }} />
+          <img
+            src={logo}
+            alt="Overhill Gardens"
+            style={{
+              height: scrolled ? '58px' : '70px',
+              width: 'auto',
+              transition: 'height 0.3s ease',
+            }}
+          />
           <span style={{
             fontFamily: "'Cormorant Garamond', serif",
-            fontSize: '1.25rem', fontWeight: 600,
-            color: 'var(--moss)', letterSpacing: '0.01em', lineHeight: 1.2,
+            fontWeight: 600, letterSpacing: '0.01em', lineHeight: 1.15,
+            fontSize: scrolled ? '1.3rem' : '1.55rem',
+            transition: 'font-size 0.3s ease',
+            color: 'var(--moss)',
           }}>
             Overhill<br />
             <span style={{ color: 'var(--bark)', fontStyle: 'italic', fontWeight: 400 }}>Gardens</span>
           </span>
         </Link>
 
-        {/* DESKTOP NAV */}
         <ul style={{ display: 'flex', gap: 0, listStyle: 'none', alignItems: 'center' }} className="desktop-nav">
           {navItems.map(item => (
             <li key={item.path}>
@@ -63,7 +73,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* HAMBURGER */}
         <button
           onClick={() => setMobileOpen(o => !o)}
           style={{ display: 'none', flexDirection: 'column', gap: '5px', padding: '4px' }}
@@ -84,7 +93,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* MOBILE MENU */}
       {mobileOpen && (
         <div style={{
           position: 'fixed', inset: 0, zIndex: 199, background: 'var(--cream)',
