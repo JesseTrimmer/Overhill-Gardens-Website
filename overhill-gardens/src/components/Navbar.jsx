@@ -12,6 +12,11 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
   const navItems = [
     { path: '/',            label: 'Home', end: true },
     { path: '/nursery',     label: 'Native Plant Nursery' },
@@ -75,7 +80,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileOpen(o => !o)}
-          style={{ display: 'none', flexDirection: 'column', gap: '5px', padding: '4px' }}
+          style={{ display: 'none', flexDirection: 'column', gap: '5px', padding: '4px', zIndex: 201, position: 'relative' }}
           className="hamburger"
           aria-label="Toggle menu"
         >
@@ -93,31 +98,57 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {mobileOpen && (
-        <div style={{
-          position: 'fixed', inset: 0, zIndex: 199, background: 'var(--cream)',
-          display: 'flex', flexDirection: 'column', justifyContent: 'center',
-          alignItems: 'flex-start', padding: '0 8vw', gap: '1.5rem',
-        }}>
+      {/* Backdrop */}
+      <div
+        onClick={closeMobile}
+        aria-hidden={!mobileOpen}
+        style={{
+          position: 'fixed', inset: 0, zIndex: 190,
+          background: 'rgba(42,42,40,0.35)',
+          opacity: mobileOpen ? 1 : 0,
+          pointerEvents: mobileOpen ? 'auto' : 'none',
+          transition: 'opacity 0.3s ease',
+        }}
+      />
+
+      {/* Dropdown panel */}
+      <div
+        aria-hidden={!mobileOpen}
+        style={{
+          position: 'fixed', top: '72px', left: 0, right: 0, zIndex: 195,
+          background: 'var(--cream)',
+          borderBottom: '1px solid var(--border)',
+          boxShadow: '0 12px 30px rgba(42,42,40,0.15)',
+          opacity: mobileOpen ? 1 : 0,
+          transform: mobileOpen ? 'translateY(0)' : 'translateY(-12px)',
+          pointerEvents: mobileOpen ? 'auto' : 'none',
+          transition: 'opacity 0.28s ease, transform 0.28s ease',
+        }}
+        className="mobile-panel"
+      >
+        <ul style={{ listStyle: 'none', padding: '0.5rem 6vw 1.5rem' }}>
           {navItems.map((item, i) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              end={item.end}
-              onClick={closeMobile}
-              className="nav-link-mobile"
-              style={{ animationDelay: `${i * 0.08}s` }}
-            >
-              {item.label}
-            </NavLink>
+            <li key={item.path} style={{ borderBottom: i < navItems.length - 1 ? '1px solid var(--border)' : 'none' }}>
+              <NavLink
+                to={item.path}
+                end={item.end}
+                onClick={closeMobile}
+                className="nav-link-mobile"
+              >
+                {item.label}
+              </NavLink>
+            </li>
           ))}
-        </div>
-      )}
+        </ul>
+      </div>
 
       <style>{`
         @media (max-width: 860px) {
           .desktop-nav { display: none !important; }
           .hamburger { display: flex !important; }
+        }
+        @media (min-width: 861px) {
+          .mobile-panel, .hamburger { display: none !important; }
         }
       `}</style>
     </>
