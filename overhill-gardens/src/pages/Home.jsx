@@ -63,12 +63,8 @@ export default function Home() {
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(61,90,47,0.18), transparent 55%)' }} />
           </div>
 
-          <div className="floating-stats" style={{
-            position: 'absolute', left: '-1.5rem', bottom: '-1.5rem',
-            background: 'var(--white)', borderRadius: 'var(--radius-md)',
-            boxShadow: 'var(--shadow-strong)', padding: '1.5rem 1.75rem',
-            display: 'flex', gap: '2rem',
-          }}>
+            <div className="floating-stats">
+              
             {stats.map(s => (
               <div key={s.label}>
                 <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: '2rem', fontWeight: 300, color: 'var(--moss)', lineHeight: 1 }}>

@@ -395,16 +395,40 @@ button {
   transform: translateY(-3px);
 }
 
+.hero-grid,
+.hero-grid > div {
+  min-width: 0;
+}
+
+.floating-stats {
+  position: absolute;
+  left: -1.5rem;
+  bottom: -1.5rem;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-strong);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  gap: 2rem;
+}
+
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr !important;
-    padding: 0 1.25rem 3rem !important;
+    padding: 0 1.25rem 2.5rem !important;
+  }
+  .hero-grid h1 {
+    font-size: clamp(2.1rem, 8vw, 3rem) !important;
+    line-height: 1.15 !important;
   }
   .floating-stats {
-    position: static !important;
+    position: static;
     margin-top: 1.5rem;
     width: 100%;
-    justify-content: space-around !important;
+    box-sizing: border-box;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 1.25rem 1rem;
   }
 }
 
